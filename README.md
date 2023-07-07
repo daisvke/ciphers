@@ -1,7 +1,7 @@
 # ciphers
 A set of cyphers
 
-##xor
+## xor
 An XOR cypher in assembly language.
 
 
