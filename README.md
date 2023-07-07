@@ -9,6 +9,7 @@ according to the principles:<br />
    0 1 1
    0 1 0
 => 0 0 1
+Encryption and decryption is done by the same algorithm.
 
 ## nbralpha
 A numbered alphabet cypher in python.
