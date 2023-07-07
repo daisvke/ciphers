@@ -50,7 +50,6 @@ Number to letter decryption.
 """
 def _decrypt(_src, _space_mode):
 	_src = re.findall(r'\d+|\s{2}|\W', _src)
-	print(_src)
 	for index, _number_str in enumerate(_src):
 		# Print non-alphanumerical characters as they are
 		if _number_str.isdigit():
