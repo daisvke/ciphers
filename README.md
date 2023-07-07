@@ -6,7 +6,7 @@ An XOR cypher in assembly language.
 
 
 ## nbralpha
-A numbered alphabet cipher.
+A numbered alphabet cipher in python.
 <br /><br />
 During encryption, it takes command-line arguments, convert each argument to a series of numbers representing the position of each character in the alphabet, and prints the results.
 <br /><br />

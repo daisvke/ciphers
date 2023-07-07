@@ -52,15 +52,16 @@ def _decrypt(_src, _space_mode):
 		# Print non-alphanumerical characters as they are
 		if _number_str.isdigit():
 			_letter_num = int(_number_str)
+			# Range a-z, 
 			if (_letter_num >= 1 and _letter_num <= 26) \
 				or (_letter_num >= 128 and _letter_num <= 154) \
 				or (_letter_num >= 160 and _letter_num <= 165):
 				_letter = chr(_letter_num + ord('A') - 1)
-				sys.stdout.write(unidecode(_letter))
+				sys.stdout.write(_letter)
 		else:
 			if _number_str == "  ":
 				_number_str = " "
-			sys.stdout.write(unidecode(_number_str))
+			sys.stdout.write(_number_str)
 
 def _check_argv(_argc, _argv):
 	_type = 0
