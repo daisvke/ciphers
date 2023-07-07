@@ -46,7 +46,8 @@ def _encrypt(_src, _space_mode):
 Number to letter decryption.
 """
 def _decrypt(_src, _space_mode):
-	_src = re.findall(r'\d+|\s{2}|\W', _src)
+	_src = re.findall(r'\d+|\s{2}|\S', _src)
+	print(_src)
 	for _number_str in _src:
 		# Print non-alphanumerical characters as they are
 		if _number_str.isdigit():
@@ -57,6 +58,8 @@ def _decrypt(_src, _space_mode):
 				_letter = chr(_letter_num + ord('A') - 1)
 				sys.stdout.write(unidecode(_letter))
 		else:
+			if _number_str == "  ":
+				_number_str = " "
 			sys.stdout.write(unidecode(_number_str))
 
 def _check_argv(_argc, _argv):
@@ -70,14 +73,14 @@ def _check_argv(_argc, _argv):
 			del _argv[i]
 			_argc -= 1
 
-		# Only continue if 
+		# Only continue if end of array not reached 
 		if i < _argc:
-			# Return error if both letter and number are used
 			for _char in _argv[i]:
 				if _char.isdigit():
 					_type |= _NUM
 				elif _char.isalpha():
 					_type |= _ALPHA
+				# Return error if both letter and number are used
 				if _type & _NUM and _type & _ALPHA:
 					_type |= _ERROR
 					return _argc, _argv, _type
@@ -106,7 +109,8 @@ main
 _argc = len(sys.argv)
 
 if _argc < 2:
-	print("\nUsage: python nbralpha [source],...\n")
+	print("\nUsage: python nbralpha [source],...\n\n"
+		"-s: encryption: put spaces between numbers\n")
 	sys.exit(1)
 
 _argc, _argv, _modes = _check_argv(_argc, sys.argv)
