@@ -10,7 +10,6 @@ The reverse process is done during decryption.
 
 import sys
 import re
-from unidecode import unidecode
 
 """
 Macros
