@@ -52,7 +52,7 @@ def _decrypt(_src, _space_mode):
 		# Print non-alphanumerical characters as they are
 		if _number_str.isdigit():
 			_letter_num = int(_number_str)
-			# Range a-z, 
+			# Range a-z, Ç-Ü, á-Ñ
 			if (_letter_num >= 1 and _letter_num <= 26) \
 				or (_letter_num >= 128 and _letter_num <= 154) \
 				or (_letter_num >= 160 and _letter_num <= 165):
