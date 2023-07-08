@@ -2,6 +2,10 @@
 A set of cyphers
 
 ## xor
+```
+;	void *key, size_t key_length, void *data, size_t data_length)
+;		<rdi>			<rsi>			<rdx>			<rcx>
+```
 An XOR cypher in assembly language.<br />
 In cryptography, the simple XOR cipher is a type of additive
 cipher, an encryption algorithm that operates, in binary,
@@ -30,8 +34,8 @@ cd nbralpha
 pip install -r requirements.txt
 
 // Usage
-python nbralpha [source],...
-
+python3 nbralpha [option] [source],...
+// option
 -s: encryption: put spaces between numbers
 
 ```

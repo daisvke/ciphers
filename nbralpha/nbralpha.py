@@ -9,7 +9,7 @@ The reverse process is done during decryption.
 """
 
 import sys
-import re
+from cryptography import *
 
 """
 Macros
@@ -22,49 +22,8 @@ _ERROR = 8
 
 # Colors
 _CLR_GREEN = "\033[32m"
+_CLR_MAGENTA = "\033[35m"
 _CLR_RESET = "\033[0m"
-
-"""
-Letter to number encryption.
-"""
-def _encrypt(_src, _space_mode):
-	for _char in _src:
-		# Print non-alphanumerical characters as they are
-		if not _char.isdigit() and not _char.isalpha():
-			sys.stdout.write(_char)
-		elif _char.isalpha():
-			_letter = str(ord(_char.upper()) - ord('A') + 1)
-			# Add 0 in front of the digit
-			if not _space_mode:
-				_result = "0" + _letter if int(_letter) < 10 else _letter 
-			sys.stdout.write(_letter)
-		if _space_mode:
-			sys.stdout.write(" ")
-
-def _is_punctuation(_src):
-	return _src == "!" or _src == "." or _src == ":" \
-		or _src == ";" or _src == "?"
-
-"""
-Number to letter decryption.
-"""
-def _decrypt(_src, _space_mode):
-	_src = re.findall(r'\d+|\s{2}|\W', _src)
-	for index, _number_str in enumerate(_src):
-		# Print non-alphanumerical characters as they are
-		if _number_str.isdigit():
-			_letter_num = int(_number_str)
-			# Ranges: a-z, Ç-Ü, á-Ñ
-			if (_letter_num >= 1 and _letter_num <= 26) \
-				or (_letter_num >= 128 and _letter_num <= 154) \
-				or (_letter_num >= 160 and _letter_num <= 165):
-				_letter = chr(_letter_num + ord('A') - 1)
-				sys.stdout.write(_letter)
-		elif (_number_str == " " and _is_punctuation(_src[index -1])) or \
-				_number_str == "  ":
-				sys.stdout.write(" ")
-		elif _number_str != " ":
-			sys.stdout.write(_number_str)
 
 def _check_argv(_argc, _argv):
 	_type = 0
@@ -99,13 +58,19 @@ def _run_encryption_decryption(_arg, _modes):
 	_dest_msg = "Encypted message: " if _encryption_mode \
 		else "decrypted message: "
 
+	# Print original text
+	print("")
 	sys.stdout.write(_src_msg)
 	print(_arg)
+
+	# Print processed text
 	sys.stdout.write(_dest_msg)
+	sys.stdout.write(_CLR_MAGENTA)
 	if _modes & _ALPHA:
 		_encrypt(_arg, _space_mode)
 	else:
 		_decrypt(_arg, _space_mode)
+	sys.stdout.write(_CLR_RESET)
 
 """
 main
