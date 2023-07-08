@@ -38,4 +38,8 @@ python3 nbralpha [option] [source],...
 // option
 -s: encryption: put spaces between numbers
 
+### Screenshot
 ```
+ <p>
+  <img src="/screenshots/nbralpha.png" width="80%" />
+ </p>
