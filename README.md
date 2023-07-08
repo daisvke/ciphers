@@ -3,8 +3,8 @@ A set of cyphers
 
 ## xor
 ```
-;	void *key, size_t key_length, void *data, size_t data_length)
-;		<rdi>			<rsi>			<rdx>			<rcx>
+; void  xor_encrypt_decrypt(void *key, size_t key_length, void *data, size_t data_length)
+;                              <rdi>           <rsi>        <rdx>            <rcx>
 ```
 An XOR cypher in assembly language.<br />
 In cryptography, the simple XOR cipher is a type of additive
