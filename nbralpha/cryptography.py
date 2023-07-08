@@ -1,10 +1,11 @@
 import sys
 import re
+import config
 
 """
 Letter to number encryption.
 """
-def _encrypt(_src, _space_mode):
+def _encrypt(_src):
 	for _char in _src:
 		# Print non-alphanumerical characters as they are
 		if not _char.isdigit() and not _char.isalpha():
@@ -12,10 +13,10 @@ def _encrypt(_src, _space_mode):
 		elif _char.isalpha():
 			_letter = str(ord(_char.upper()) - ord('A') + 1)
 			# Add 0 in front of the digit
-			if not _space_mode:
+			if not config._g_flags & config._Flag.OPTSPACE.value:
 				_result = "0" + _letter if int(_letter) < 10 else _letter 
 			sys.stdout.write(_letter)
-		if _space_mode:
+		if config._g_flags & config._Flag.OPTSPACE.value:
 			sys.stdout.write(" ")
 
 def _is_punctuation(_src):
@@ -25,7 +26,7 @@ def _is_punctuation(_src):
 """
 Number to letter decryption.
 """
-def _decrypt(_src, _space_mode):
+def _decrypt(_src):
 	# Split the argument string
 	_src = re.findall(r'\d+|\s{2}|\W', _src)
 	for index, _number_str in enumerate(_src):

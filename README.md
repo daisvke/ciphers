@@ -37,10 +37,13 @@ cd nbralpha
 // Usage
 python3 nbralpha [option] [source],...
 // option
--s: encryption: put spaces between numbers
+-s: spaces between numbers in encryption mode's output string.
+-v: verbose mode. Useful to desactivate when reusing the
+output through pipes, etc.
+
+```
 
 ### Screenshot
-```
  <p>
     <img src="/screenshots/nbralpha.png" width="60%" />
  </p>

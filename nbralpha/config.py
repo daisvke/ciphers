@@ -1,5 +1,7 @@
 from enum import Enum
 
+_g_flags = 0
+
 """
 Macros
 """
@@ -13,6 +15,6 @@ class _Flag(Enum):
 
 # Colors
 class _Color(Enum):
-	GREEN = "\033[32mi"
+	GREEN = "\033[32m"
 	MAGENTA = "\033[35m"
 	RESET = "\033[0m"
