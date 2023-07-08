@@ -43,5 +43,3 @@ def _decrypt(_src, _space_mode):
 				sys.stdout.write(" ")
 		elif _number_str != " ":
 			sys.stdout.write(_number_str)
-
-__all__ = ['_encrypt', '_decrypt']
