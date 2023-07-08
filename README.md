@@ -10,9 +10,11 @@ An XOR cypher in assembly language.<br />
 In cryptography, the simple XOR cipher is a type of additive
 cipher, an encryption algorithm that operates, in binary,
 according to the principles:<br />
+```
    0 1 1
    0 1 0
 => 0 0 1
+```
 Encryption and decryption is done by the same algorithm.
 
 
