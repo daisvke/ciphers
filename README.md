@@ -42,5 +42,5 @@ python3 nbralpha [option] [source],...
 ```
  <p>
     <img src="/screenshots/nbralpha.png" width="60%" />
-    From Edgar Allan Poe's short story <i>"The Gold-Bug."</i>i>
  </p>
+ From Edgar Allan Poe's short story <i>"The Gold-Bug."</i>i>
