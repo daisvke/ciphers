@@ -33,7 +33,6 @@ It can only decode numbers separated by spaces.
 ```
 // Install
 cd nbralpha
-pip install -r requirements.txt
 
 // Usage
 python3 nbralpha [option] [source],...
