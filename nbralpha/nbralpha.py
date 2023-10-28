@@ -51,7 +51,7 @@ _argc = len(sys.argv)
 if _argc < 2:
 	print("\nUsage: python nbralpha [source],...\n\n"
 	"-s: spaces between numbers in encryption mode's output string.\n"
-	"-v: verbose mode. Useful to desactivate when reusing the"
+	"-v: verbose mode. Useful to desactivate when reusing the "
 	"output through pipes, etc.\n")
 	sys.exit(1)
 
