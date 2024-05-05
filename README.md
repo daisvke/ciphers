@@ -1,12 +1,12 @@
 # ciphers
-A set of cyphers
+A set of ciphers
 
 ## xor
 ```
 ; void  xor_encrypt_decrypt(void *key, size_t key_length, void *data, size_t data_length)
 ;                              <rdi>           <rsi>        <rdx>            <rcx>
 ```
-An XOR cypher in assembly language.<br />
+An XOR cipher in assembly language.<br />
 In cryptography, the simple XOR cipher is a type of additive
 cipher, an encryption algorithm that operates, in binary,
 according to the principles:<br />
@@ -21,7 +21,7 @@ Encryption and decryption is done by the same algorithm.
 ## nbralpha
 
 ### Description
-A numbered alphabet cypher in python.
+A numbered alphabet cipher in python.
 * During encryption, it takes command-line arguments, convert each argument to a series of numbers representing the position of each character in the alphabet, and prints the results.
 * The reverse process is done during decryption.<br />
 <br />
