@@ -21,7 +21,7 @@ Encryption and decryption is done by the same algorithm.
 ```
 void	xor_with_additive_cipher(
 	void *key, size_t key_length, void *data, size_t data_length)
-      <rdi>           <rsi>         <rdx>           <rcx>
+         <rdi>           <rsi>         <rdx>           <rcx>
 ```
 We added an additive cipher to the previous XOR cipher:
 ```
