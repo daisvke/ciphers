@@ -3,8 +3,8 @@ A set of ciphers
 
 ## xor
 ```
-; void  xor_encrypt_decrypt(void *key, size_t key_length, void *data, size_t data_length)
-;                              <rdi>           <rsi>        <rdx>            <rcx>
+void  xor_encrypt_decrypt(void *key, size_t key_length, void *data, size_t data_length)
+                              <rdi>           <rsi>        <rdx>            <rcx>
 ```
 An XOR cipher in assembly language.<br />
 In cryptography, the simple XOR cipher is a type of additive
@@ -17,6 +17,20 @@ according to the principles:<br />
 ```
 Encryption and decryption is done by the same algorithm.
 
+## xor_with_addition
+```
+void	xor_with_additive_cipher(
+	void *key, size_t key_length, void *data, size_t data_length)
+		 <rdi>			<rsi>	      	<rdx>		   	<rcx>
+```
+We added an additive cipher to the previous XOR cipher:
+- encyption:
+	1. <byte> + <additive cipher value>
+	2. XOR <data-byte> <key-byte>
+
+- decryption:
+	1. XOR <data-byte> <key-byte>
+	2. <byte> - <additive cipher value>
 
 ## nbralpha
 
