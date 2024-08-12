@@ -13,6 +13,7 @@ according to the principles:<br />
 ```
    0 1 1
    0 1 0
+   _____
 => 0 0 1
 ```
 Encryption and decryption is done by the same algorithm.
@@ -47,11 +48,9 @@ It can only decode numbers separated by spaces.
 
 ### Commands
 ```
-// Install
-cd nbralpha
-
 // Usage
 python3 nbralpha [option] [source],...
+
 // option
 -s: spaces between numbers in encryption mode's output string.
 -v: verbose mode. Useful to desactivate when reusing the
