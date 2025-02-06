@@ -67,3 +67,11 @@ From Edgar Allan Poe's short story "The Gold-Bug".
 
 ### **Description**
 A C++ function to convert a hexadecimal string to a Base32 string.
+
+## **Morse Encoder**
+
+### **Description**
+A python Class to convert a string into Morse code, and vice versa, handling space and alphanumeric characters with a dictionary lookup.
+
+<img src="screenshots/morse.png" />
+(Quote by Helen Keller)
