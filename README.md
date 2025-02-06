@@ -75,3 +75,35 @@ A python Class to convert a string into Morse code, and vice versa, handling spa
 
 <img src="screenshots/morse.png" />
 (Quote by Helen Keller)
+
+## **Custom Alphabet Encoder**
+
+### **Description**
+
+A simple substitution cipher that encodes texts according to a custom alphabet declared in `alphabet.py`.
+
+- The program takes a string as an argument and encodes or decodes it according to our custom alphabet.
+
+- By default, the custom alphabet supports alphanumeric characters, but you can add any character set you like.
+
+- All unhandled characters will remain unencoded in the final output.
+
+* Default alphabet:
+```
+    'A': 'X',
+    'B': '8',
+    'C': 'Q',
+    'D': 'j',
+    'E': 'à',
+    'F': 'y',
+    'G': '^',
+    'H': 'ù',
+    'I': 's',
+    'J': '$',
+    'K': 'x',
+    'L': 'N',
+    'M': 'S',
+    ...
+```
+
+<img src="screenshots/custom_alphabet.png" />

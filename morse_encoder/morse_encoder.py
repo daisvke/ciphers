@@ -67,7 +67,7 @@ def parse_args() -> Namespace:
 
     # Add arguments
     parser.add_argument(
-        'string', type=str, help='the text to convert'
+        'string', type=str, help='The text to convert'
         )
     parser.add_argument(
         '-r', '--reverse', action='store_true',
