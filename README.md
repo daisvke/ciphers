@@ -137,8 +137,8 @@ A simple substitution cipher that encodes texts according to a custom alphabet d
 alphabet.py [-h] [-r] string_to_convert alphabet_dict
 
 # positional arguments:
-  string         the text to convert
-  alphabet       JSON file containing the custom alphabet
+  string_to_convert  the text to convert
+  alphabet_dict      JSON file containing the custom alphabet
 
 # options:
   -h, --help     show this help message and exit
