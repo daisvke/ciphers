@@ -2,7 +2,7 @@
 
 from sys import stderr
 from argparse import ArgumentParser, Namespace
-from alphabet import get_custom_alphabet
+import json
 
 
 class CustomAlphabetEncoder:
@@ -19,6 +19,7 @@ class CustomAlphabetEncoder:
     def __init__(
             self,
             string_to_convert: str,
+            alphabet_dict: dict,
             encoded_to_original: bool
             ):
 
@@ -27,9 +28,9 @@ class CustomAlphabetEncoder:
             raise AssertionError("Text contains non printable character(s).")
 
         self.string_to_convert: str = string_to_convert
+        self.alphabet_dict: dict = alphabet_dict
         # Convert an encoded text to the original text
         self.encoded_to_original: bool = encoded_to_original
-        self.alphabet_dict: dict = get_custom_alphabet()
 
     def convert_from_original_to_encoded(self):
         alphabet = self.alphabet_dict  # Get the custom alphabet dictionary
@@ -100,6 +101,10 @@ def parse_args() -> Namespace:
         'string', type=str, help='The text to convert'
         )
     parser.add_argument(
+        'alphabet', type=str, help='JSON file containing the custom alphabet'
+        )
+
+    parser.add_argument(
         '-r', '--reverse', action='store_true',
         help="Convert an encoded text to the original text")
 
@@ -109,10 +114,13 @@ def parse_args() -> Namespace:
 def main():
     args = parse_args()
 
-    encoder = CustomAlphabetEncoder(args.string, args.reverse)
+    # Open the file and load the dictionary
+    with open(args.alphabet, 'r') as file:
+        alphabet_dict = json.load(file)
 
-    if not args.reverse:
-        args.reverse = False
+    encoder = CustomAlphabetEncoder(
+            args.string, alphabet_dict, args.reverse
+        )
 
     if args.reverse:
         encoder.convert_from_encoded_to_original()
@@ -124,4 +132,4 @@ if __name__ == "__main__":
     try:
         main()
     except Exception as e:
-        print(f"AssertionError: {e}", file=stderr)
+        print(f"Error: {e}", file=stderr)
