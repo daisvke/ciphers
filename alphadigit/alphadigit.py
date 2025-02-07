@@ -4,7 +4,10 @@
 """
 A numbered alphabet cipher.
 
-During encryption, it takes command-line arguments, convert each argument to a series of numbers representing the position of each character in the alphabet, and prints the results.
+During encryption, it takes command-line arguments,
+convert each argument to a series of numbers representing
+the position of each character in the alphabet,
+and prints the results.
 
 The reverse process is done during decryption.
 """
@@ -21,7 +24,6 @@ Print suitable messages and run encryption or decrpytion.
 
 
 def _run_encryption_decryption(_arg):
-    _space_mode = config._g_flags & config._Flag.OPTSPACE.value
     _encryption_mode = config._g_flags & config._Flag.ALPHA.value
     _src_msg = "Original message: " if _encryption_mode \
         else "Encrypted message: "
@@ -52,10 +54,11 @@ def main():
     _argc = len(sys.argv)
 
     if _argc < 2:
-        print("\nUsage: ./alphadigit [source],...\n\n"
-        "-s: spaces between numbers in encryption mode's output string.\n"
-        "-v: verbose mode. Useful to desactivate when reusing the "
-        "output through pipes, etc.\n")
+        print(
+            "\nUsage: ./alphadigit [source],...\n\n"
+            "-s: spaces between numbers in encryption mode's output string.\n"
+            "-v: verbose mode. Useful to desactivate when reusing the "
+            "output through pipes, etc.\n")
         sys.exit(1)
 
     _argc = _check_argv(_argc, sys.argv)
@@ -75,11 +78,16 @@ def main():
 
     if config._g_flags & config._Flag.OPTVERBOSE.value:
         if config._g_flags & config._Flag.ALPHA.value:
-            print(config._Color.GREEN.value + "Encryption complete!" + \
-                config._Color.RESET.value)
+            print(
+                config._Color.GREEN.value + "Encryption complete!" +
+                config._Color.RESET.value
+                )
         else:
-            print(config._Color.GREEN.value + "Decryption complete!" + \
-                config._Color.RESET.value)
+            print(
+                config._Color.GREEN.value + "Decryption complete!" +
+                config._Color.RESET.value
+                )
+
 
 if __name__ == "__main__":
     try:

@@ -32,7 +32,7 @@ class Alphabet:
         # Convert an encoded text to the original text
         self.encoded_to_original: bool = encoded_to_original
 
-    def convert_from_original_to_encoded(self):
+    def convert_from_original_to_encoded(self) -> None:
         alphabet = self.alphabet_dict  # Get the custom alphabet dictionary
 
         for char in self.string_to_convert:
@@ -63,7 +63,7 @@ class Alphabet:
                 # If the character is not found in the alphabet
                 print(char, end="")  # Print the unencoded character
 
-    def convert_from_encoded_to_original(self):
+    def convert_from_encoded_to_original(self) -> None:
         alphabet = self.alphabet_dict  # Get the custom alphabet dictionary
 
         for char in self.string_to_convert:
@@ -119,7 +119,7 @@ def main():
     # Open the file and load the dictionary
     with open(args.alphabet_dict, 'r') as file:
         alphabet_dict = json.load(file)
-    
+
     if not alphabet_dict:
         raise AssertionError("Alphabet dictionary is empty!")
 

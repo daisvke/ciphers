@@ -44,6 +44,6 @@ std::string hexToBase32(const std::string& hexKey) {
         base32Key[i] = '=';
         --i;
     }
-    std::cout << "Base32 secret: " << base32Key << std::endl;
+    std::cout << "Base32: " << base32Key << std::endl;
     return base32Key;
 }
