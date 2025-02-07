@@ -105,7 +105,7 @@ morse_encoder.py [-h] [-r] string
 
 ### **Description**
 
-A simple substitution cipher that encodes texts according to a custom alphabet declared in `alphabet.py`.
+A simple substitution cipher that encodes texts according to a custom alphabet declared in `alphabet.json`.
 
 - The program takes a string as an argument and encodes or decodes it according to our **custom alphabet**.
 
