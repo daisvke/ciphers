@@ -18,6 +18,7 @@ In cryptography, the simple XOR cipher is a type of additive cipher, an encrypti
 
 Encryption and decryption are done using the same algorithm.
 
+
 ## **XOR with Addition**
 ```c
 void xor_with_additive_cipher(
@@ -35,58 +36,82 @@ We’ve added an additive cipher to the previous XOR cipher:
     2. <byte> - <additive cipher value>
 ```
 
-## **NbrAlpha Cipher**
+## **Alphadigit**
 
 ### **Description**
 A numbered alphabet cipher written in Python.  
 - During encryption, it takes command-line arguments, converts each argument to a series of numbers representing the position of each character in the alphabet, and prints the results.  
 - The reverse process is done during decryption.
-
-It can only decode numbers separated by spaces.  
-Handled alphabetical characters include:  
+- It can only decode numbers separated by spaces.
+- Handled alphabetical characters include:  
 - `a-z`, `Ç-Ü`, `á-Ñ`.  
 - It also handles punctuation.
+- Arguments can only contain either all digits or all letters, but not both. This is to avoid any confusion, as we have a numerical cipher.<br />
+  - For instance, if we left the digits in the final output:
+    - When encoding:<br />
+    `1cm` => *encode* => `1 3 13`
+    - When decoding:<br />
+    `1 3 13` => *decode* => `ACM` != `1cm`
 
+---
 ### **Commands**
 ```bash
-// Usage
-python3 nbralpha [option] [source],...
+# Usage
+./alphadigit [option] [source],...
 
-// option
+# option
 -s: Use spaces between numbers in encryption mode’s output string.
 -v: Verbose mode. Useful to disable when reusing the output through pipes, etc.
 ```
-
+---
 ### **Screenshot**
-<p>
-   <img src="/screenshots/nbralpha.png" width="60%" />
-</p>
-From Edgar Allan Poe's short story "The Gold-Bug".
+<img src="screenshots/alphadigit.png" />
+
+(The inaugural message transmitted over the Moscow–Washington hotline on August 30, 1963, was the test phrase: `THE QUICK BROWN FOX JUMPED OVER THE LAZY DOG'S BACK 1234567890`, which is a [pangram](https://en.wikipedia.org/wiki/Pangram).)
+
 
 ## **HexToBase32**
 
 ### **Description**
 A C++ function to convert a hexadecimal string to a Base32 string.
 
+
 ## **Morse Encoder**
 
 ### **Description**
 A python Class to convert a string into Morse code, and vice versa, handling space and alphanumeric characters with a dictionary lookup.
 
-<img src="screenshots/morse.png" />
-(Quote by Helen Keller)
+### **Commands**
+```bash
+# Usage
+morse_encoder.py [-h] [-r] string
 
-## **Custom Alphabet Encoder**
+# positional arguments:
+  string         the text to convert
+
+# options:
+  -h, --help     show this help message and exit
+  -r, --reverse  convert from Morse code to alphanumerical string
+
+# Example:
+./morse_encoder.py "THE QUICK BROWN FOX JUMPED OVER THE LAZY DOGS BACK 1234567890"
+```
+---
+### **Screenshot**
+<img src="screenshots/morse.png" />
+
+
+## **Alphabet**
 
 ### **Description**
 
 A simple substitution cipher that encodes texts according to a custom alphabet declared in `alphabet.py`.
 
-- The program takes a string as an argument and encodes or decodes it according to our custom alphabet.
+- The program takes a string as an argument and encodes or decodes it according to our **custom alphabet**.
 
-- By default, the custom alphabet supports alphanumeric characters, but you can add any character set you like.
+- By default, the custom alphabet supports **alphanumeric characters**, but you can add any character set you like.
 
-- All unhandled characters will remain unencoded in the final output.
+- All unhandled characters will remain **unencoded** in the final output.
 
 * Default alphabet:
 ```
@@ -105,5 +130,21 @@ A simple substitution cipher that encodes texts according to a custom alphabet d
     'M': 'S',
     ...
 ```
+---
+### **Commands**
+```bash
+# Usage
+alphabet.py [-h] [-r] string_to_convert alphabet_dict
 
-<img src="screenshots/custom_alphabet.png" />
+# positional arguments:
+  string         the text to convert
+  alphabet       JSON file containing the custom alphabet
+
+# options:
+  -h, --help     show this help message and exit
+  -r, --reverse  convert an encoded text to the original text
+```
+---
+### Screenshot
+
+<img src="screenshots/alphabet.png" />

@@ -67,11 +67,11 @@ def parse_args() -> Namespace:
 
     # Add arguments
     parser.add_argument(
-        'string', type=str, help='The text to convert'
+        'string', type=str, help='the text to convert'
         )
     parser.add_argument(
         '-r', '--reverse', action='store_true',
-        help="Convert from Morse code to alphanumerical string")
+        help="convert from Morse code to alphanumerical string")
 
     return parser.parse_args()
 
@@ -94,4 +94,4 @@ if __name__ == "__main__":
     try:
         main()
     except Exception as e:
-        print(f"AssertionError: {e}", file=stderr)
+        print(f"Error: {e}", file=stderr)

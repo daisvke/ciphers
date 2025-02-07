@@ -5,7 +5,7 @@ from argparse import ArgumentParser, Namespace
 import json
 
 
-class CustomAlphabetEncoder:
+class Alphabet:
     """
     The program takes a string as an argument and encodes or decodes it
     according to our custom alphabet.
@@ -98,15 +98,17 @@ def parse_args() -> Namespace:
 
     # Add arguments
     parser.add_argument(
-        'string', type=str, help='The text to convert'
+        'string_to_convert', type=str, help='the text to convert'
         )
     parser.add_argument(
-        'alphabet', type=str, help='JSON file containing the custom alphabet'
+        'alphabet_dict',
+        type=str,
+        help='JSON file containing the custom alphabet'
         )
 
     parser.add_argument(
         '-r', '--reverse', action='store_true',
-        help="Convert an encoded text to the original text")
+        help="convert an encoded text to the original text")
 
     return parser.parse_args()
 
@@ -115,11 +117,16 @@ def main():
     args = parse_args()
 
     # Open the file and load the dictionary
-    with open(args.alphabet, 'r') as file:
+    with open(args.alphabet_dict, 'r') as file:
         alphabet_dict = json.load(file)
+    
+    if not alphabet_dict:
+        raise AssertionError("Alphabet dictionary is empty!")
 
-    encoder = CustomAlphabetEncoder(
-            args.string, alphabet_dict, args.reverse
+    encoder = Alphabet(
+            args.string_to_convert,
+            alphabet_dict,
+            args.reverse
         )
 
     if args.reverse:
