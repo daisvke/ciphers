@@ -26,13 +26,14 @@ class MorseEncoder:
         self.morse_to_alnum_dict: dict = get_morse_to_alnum()
 
     def convert_from_alnum_to_morse(self):
-        # Check if all characters are handled
-        for char in self.string_to_convert:
-            if not char.isalnum() and char != ' ':
-                raise AssertionError("Text contains unhandled character(s).")
-
         morse = self.alnum_to_morse_dict  # Get the Morse Code dictionary
         string_len = len(self.string_to_convert) - 1
+
+        # Check if all characters are handled
+        for char in morse:
+            if char not in self.alnum_to_morse_dict:
+                print(char)
+                raise AssertionError("Text contains unhandled character(s).")
 
         # enumerate() gives the current index and the character
         for i, char in enumerate(self.string_to_convert):
