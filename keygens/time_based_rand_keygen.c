@@ -33,7 +33,7 @@
 
 # define DC_KEY_SIZE			16
 
-// Seconds based rand()
+// Nanoseconds based rand()
 unsigned char *generate_time_based_rand_key_nanosec(
 	const char *charset, size_t strength
 	) {
@@ -58,7 +58,7 @@ unsigned char *generate_time_based_rand_key_nanosec(
 	return key;
 }
 
-// Nanoseconds based rand()
+// Seconds based rand()
 unsigned char *generate_time_based_rand_key_sec(
 	const char *charset, size_t strength
 	) {
