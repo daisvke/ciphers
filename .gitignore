@@ -3,6 +3,7 @@ private/
 # Temp files
 .*.*.sw?
 .*.sw?
+a.out
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

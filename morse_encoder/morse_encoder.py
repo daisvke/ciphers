@@ -10,7 +10,7 @@ class MorseEncoder:
     The program takes a string as an argument and encodes it
     into Morse Code, and vice versa.
 
-    It supports space and alphanumeric characters.
+    It supports space, alphanumeric and some special characters.
     Complete morse characters are separated by a single space.
     A space character is represented by a slash '/'.
     """
